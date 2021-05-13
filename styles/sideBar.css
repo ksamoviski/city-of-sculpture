@@ -1,0 +1,12 @@
+.sideBar {
+    position: relative;
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    background: #C1272D;
+    
+    width: 25vw;
+    height: 100vh;
+    transform: translateX(-30vw);
+    transition: .75s cubic-bezier(0.4, 0, 0.4, 1);
+  }

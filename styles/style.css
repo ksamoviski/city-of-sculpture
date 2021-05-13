@@ -1,5 +1,10 @@
 
-
+html {
+    /*font-family: 'calibre-Bold', sans-serif;*/
+    font-family: "Calibre-Bold", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",
+      "メイリオ", "Meiryo", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    letter-spacing: 0.3em;
+  }
 header {
     display: flex;
     justify-content: center;
@@ -12,7 +17,7 @@ header {
     transform: translateY(-20vh);
     z-index: 1;
     box-shadow: 2px 2px #C1272D;
-    transition: 0.3s cubic-bezier(0.4, 0, 0.58, 1) ;
+    transition: 1s cubic-bezier(0.4, 0, 0.58, 1) ;
   }
 
   .logoDiv {

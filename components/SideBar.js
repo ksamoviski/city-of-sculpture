@@ -30,16 +30,18 @@ const NavItem = (navItemText) => {
   return container;
 };
 
+
+
 export const SideBar = {
   open: function () {
     let sideBar = BetterElement("div", "sideBar");
+    let menuContainer = BetterElement('div', 'menuContainer');
 
     menuItems.forEach(itemText => {
         let navElements = NavItem(itemText);
-        sideBar.appendChild(navElements);
+        menuContainer.appendChild(navElements);
     })
-
-   
+    sideBar.appendChild(menuContainer);
     app.appendChild(sideBar);
     setTimeout(() => {
       sideBar.style.transform = "translateX(10vw)";
@@ -47,12 +49,3 @@ export const SideBar = {
   },
 };
 
-
-// menuItems.forEach((item) => {
-//     let navItemDiv = BetterElement("div", "navItemDiv");
-//     let navBarItem = BetterElement("h2", "navBarItem");
-//     navBarItem.innerText = item;
-
-//     navItemDiv.appendChild(navBarItem);
-//     sideBar.appendChild(navItemDiv);
-//   });

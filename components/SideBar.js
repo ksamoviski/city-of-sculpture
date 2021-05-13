@@ -1,4 +1,5 @@
 import { BetterElement } from "./BetterElement.js";
+import { OpenExtraSide } from "./Doors.js";
 
 const app = document.getElementById("app");
 
@@ -20,6 +21,7 @@ const NavItem = (navItemText) => {
   container.addEventListener("mouseover", () => {
     container.style.backgroundColor = "white";
     textElement.style.color = "#c1272d";
+    OpenExtraSide(menuItems.indexOf(navItemText));
   });
 
   container.addEventListener("mouseout", () => {
@@ -30,17 +32,16 @@ const NavItem = (navItemText) => {
   return container;
 };
 
-
-
 export const SideBar = {
   open: function () {
     let sideBar = BetterElement("div", "sideBar");
-    let menuContainer = BetterElement('div', 'menuContainer');
+    sideBar.id = 'sideBar';
+    let menuContainer = BetterElement("div", "menuContainer");
 
-    menuItems.forEach(itemText => {
-        let navElements = NavItem(itemText);
-        menuContainer.appendChild(navElements);
-    })
+    menuItems.forEach((itemText) => {
+      let navElements = NavItem(itemText);
+      menuContainer.appendChild(navElements);
+    });
     sideBar.appendChild(menuContainer);
     app.appendChild(sideBar);
     setTimeout(() => {
@@ -48,4 +49,3 @@ export const SideBar = {
     }, 150);
   },
 };
-

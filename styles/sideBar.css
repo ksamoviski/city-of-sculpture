@@ -6,6 +6,7 @@
   background: #c1272d;
   width: 25vw;
   height: 100vh;
+  z-index: 1;
   transform: translateX(-30vw);
   transition: 1.2s cubic-bezier(0.4, 0, 0.4, 1);
 }
@@ -28,6 +29,7 @@
 
 .navBarItem {
   font-size: 1.7rem;
+  text-transform: uppercase;
   color: white;
 }
 

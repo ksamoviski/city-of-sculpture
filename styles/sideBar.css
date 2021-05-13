@@ -23,13 +23,10 @@
   align-items: center;
 }
 
-.navItemDiv:hover {
-  background-color: white;
-}
-
 .navBarItem {
   font-size: 1.7rem;
   text-transform: uppercase;
+  font-weight: 900;
   color: white;
 }
 

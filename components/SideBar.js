@@ -3,6 +3,8 @@ import { OpenExtraSide } from "./Doors.js";
 
 const app = document.getElementById("app");
 
+let littleDoorOpen = false;
+
 const menuItems = [
   "About Us",
   "The Sculptures",
@@ -18,15 +20,19 @@ const NavItem = (navItemText) => {
   let textElement = BetterElement("h2", "navBarItem");
   textElement.innerText = navItemText;
   container.appendChild(textElement);
-  container.addEventListener("mouseover", () => {
-    container.style.backgroundColor = "white";
-    textElement.style.color = "#c1272d";
-    OpenExtraSide(menuItems.indexOf(navItemText));
+  container.addEventListener("mouseenter", () => {
+    if (!littleDoorOpen) {
+      container.style.backgroundColor = "white";
+      textElement.style.color = "#c1272d";
+      OpenExtraSide(menuItems.indexOf(navItemText));
+      littleDoorOpen = true;
+    }
   });
 
-  container.addEventListener("mouseout", () => {
+  container.addEventListener("mouseleave", () => {
     container.style.backgroundColor = "#c1272d";
     textElement.style.color = "white";
+    littleDoorOpen = false;
   });
 
   return container;
@@ -35,7 +41,7 @@ const NavItem = (navItemText) => {
 export const SideBar = {
   open: function () {
     let sideBar = BetterElement("div", "sideBar");
-    sideBar.id = 'sideBar';
+    sideBar.id = "sideBar";
     let menuContainer = BetterElement("div", "menuContainer");
 
     menuItems.forEach((itemText) => {

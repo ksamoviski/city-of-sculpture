@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   background: #c1272d;
-  width: 25vw;
+  width: 27vw;
   height: 100vh;
   z-index: 1;
   transform: translateX(-30vw);
@@ -24,12 +24,12 @@
 }
 
 .navBarItem {
-  font-size: 1.7rem;
+  font-size: 1.9rem;
   text-transform: uppercase;
   font-weight: 900;
   color: white;
 }
 
-.navBarItem:hover {
+/* .navBarItem:hover {
   color: #c1272d;
-}
+} */

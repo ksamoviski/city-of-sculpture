@@ -1,38 +1,62 @@
+import { AboutUsPanel } from "./AboutUs.js";
 import { BetterElement } from "./BetterElement.js";
-import { OpenExtraSide } from "./Doors.js";
+import { Sculptures } from "./Sculptures.js";
+import { ArtistsPanel } from "./ArtistsPanel.js";
+import { GettingAround } from "./GettingAround.js";
+import { Bikes } from "./Bikes.js";
+import { Hamilton } from "./Hamilton.js";
+import { Contact } from "./Contact.js";
 
 const app = document.getElementById("app");
 
-let littleDoorOpen = false;
-
-const menuItems = [
-  "About Us",
-  "The Sculptures",
-  "The Artists",
-  "Getting Around",
-  "Sculptural Bike Racks",
-  "Hamilton",
-  "Contact Us",
+const ourPanels = [
+  AboutUsPanel,
+  Sculptures,
+  ArtistsPanel,
+  GettingAround,
+  Bikes,
+  Hamilton,
+  Contact,
 ];
 
-const NavItem = (navItemText) => {
+let littleDoorOpen = false;
+
+const menuItemFunctions = {
+  "About Us": AboutUsPanel,
+  "The Sculptures": Sculptures,
+  "The Artists": ArtistsPanel,
+  "Getting Around": GettingAround,
+  "Sculptural Bike Racks": Bikes,
+  Hamilton: Hamilton,
+  "Contact Us": Contact,
+};
+
+const NavItem = (menuKeyValue) => {
   let container = BetterElement("div", "navItemDiv");
   let textElement = BetterElement("h2", "navBarItem");
-  textElement.innerText = navItemText;
+  textElement.innerText = menuKeyValue;
   container.appendChild(textElement);
   container.addEventListener("mouseenter", () => {
-    if (!littleDoorOpen) {
-      container.style.backgroundColor = "white";
-      textElement.style.color = "#c1272d";
-      OpenExtraSide(menuItems.indexOf(navItemText));
-      littleDoorOpen = true;
-    }
-  });
 
-  container.addEventListener("mouseleave", () => {
-    container.style.backgroundColor = "#c1272d";
-    textElement.style.color = "white";
-    littleDoorOpen = false;
+    for (let menuItemElement of Array.from(document.querySelectorAll('.navBarItem'))) {
+        menuItemElement.style.color = 'white';
+    }
+    for (let container of Array.from(document.querySelectorAll('.navItemDiv'))) {
+        container.style.backgroundColor = '#c1272d';
+    }
+    for (let panel of ourPanels) {
+      if (panel.isOpen) {
+        panel.close();
+
+        container.style.backgroundColor = "#c1272d";
+        textElement.style.color = "white";
+      }
+      if (panel.title === menuKeyValue) {
+        panel.open();
+      }
+    }
+    container.style.backgroundColor = "white";
+    textElement.style.color = "#c1272d";
   });
 
   return container;
@@ -44,10 +68,11 @@ export const SideBar = {
     sideBar.id = "sideBar";
     let menuContainer = BetterElement("div", "menuContainer");
 
-    menuItems.forEach((itemText) => {
-      let navElements = NavItem(itemText);
+    ourPanels.forEach((panel) => {
+      let navElements = NavItem(panel.title);
       menuContainer.appendChild(navElements);
     });
+
     sideBar.appendChild(menuContainer);
     app.appendChild(sideBar);
     setTimeout(() => {

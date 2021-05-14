@@ -31,6 +31,8 @@ export const XOut = () => {
   x.addEventListener('click', ()=> { 
     let littleSide = document.getElementById('littleSide');
     littleSide.rollout('translateX(0vw)');
+
+    setTimeout(()=> { littleSide.parentElement.removeChild(littleSide) }, 300);
   
   })
   

@@ -1,11 +1,11 @@
-import { Header } from "../components/Header.js";
+import { HeaderFooter } from "../components/HeaderFooter.js";
 
 
 const app = document.getElementById("app");
 
 class App {
   static renderBasicPage() {
-    Header.render();
+    HeaderFooter.render();
 
   }
 }

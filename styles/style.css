@@ -1,28 +1,42 @@
-
 html {
-    /*font-family: 'calibre-Bold', sans-serif;*/
-    font-family: "Calibre-Bold", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",
-      "メイリオ", "Meiryo", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-    letter-spacing: 0.3em;
-  }
-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    top: 0;
-    background: white;
-    position: fixed;
-    transform: translateY(-20vh);
-    z-index: 2;
-    box-shadow: 2px 2px #C1272D;
-    transition: 1s cubic-bezier(0.4, 0, 0.58, 1) ;
-  }
+  /*font-family: 'calibre-Bold', sans-serif;*/
+  font-family: "Calibre-Bold", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",
+    "メイリオ", "Meiryo", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  letter-spacing: 0.3em;
+  list-style: none;
+}
 
-  .logoDiv {
-      width: 25%;
-      height: 80%;
-      background-image: url('../images/logo.png');
-      background-size: contain;
-      background-repeat: no-repeat;
-  }
+body {
+  margin: 0;
+}
+
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 105vw;
+  top: 0;
+  background: white;
+  position: fixed;
+  transform: translateY(-20vh);
+  z-index: 2;
+  box-shadow: 2px 2px #c1272d;
+  transition: 1s cubic-bezier(0.4, 0, 0.58, 1);
+}
+
+.logoDiv {
+  width: 25%;
+  height: 80%;
+  background-image: url("../images/logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 105vw;
+  height: 1rem;
+  background-color: #c1272d;
+}

@@ -15,7 +15,7 @@ export const ArtistsPanel = {
     extraSide.style.overflow = 'hidden';
 
     for (let i = 1; i < 30; i++) {
-        let artistElement = BetterElement('h2', 'artistName');
+        let artistElement = BetterElement('li', 'artistName');
         artistElement.innerText = `artist ${i}`;
         extraSide.appendChild(artistElement);
     }

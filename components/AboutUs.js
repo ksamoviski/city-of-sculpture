@@ -17,7 +17,7 @@ export const AboutUsPanel = {
     extraSide.style.width = "27vw";
     extraSide.appendChild(xOut);
 
-    let statement = BetterElement("h3", "aboutUsStatementDiv");
+    let statement = BetterElement("p", "aboutUsStatementDiv", "about");
     statement.innerText = aboutUsStatement;
     extraSide.appendChild(statement);
     app.appendChild(extraSide);

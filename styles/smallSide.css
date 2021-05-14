@@ -1,30 +1,32 @@
 .smallSide {
+  border-bottom:2px solid #c1272d;
+  border-right: 2px solid #c1272d; 
+  border-top: 2px solid #c1272d;
   position: absolute;
-  top: 24vh;
   left: 15vw;
-  box-shadow: 2px 2px #c1272d;
-  border: 2px solid #c1272d;
+  top: 24vh;
+  /* box-shadow: 2px 2px #c1272d; */
   transition: 0.7s cubic-bezier(0.4, 0, 0.4, 1);
 }
 
 .aboutUsStatementDiv {
   font-size: 1.2rem;
-  font-weight: 900;
-  margin: 2rem;
+  font-weight: 300;
   line-height: 1.6em;
+  margin: 2rem;
 }
 
 .artistName {
   font-size: 1.2rem;
-  font-weight: 900;
+  font-weight: 300;
   margin-left: 4rem;
 
 }
 
 .xOut {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin-top: 0;
   color: #c1272d;
+  margin-top: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
 }

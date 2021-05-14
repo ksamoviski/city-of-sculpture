@@ -22,7 +22,7 @@ const ourPanels = [
 
 const NavItem = (menuKeyValue) => {
   let container = BetterElement("div", "navItemDiv");
-  let textElement = BetterElement("h2", "navBarItem");
+  let textElement = BetterElement( 'h2',"navBarItem");
   textElement.innerText = menuKeyValue;
   container.appendChild(textElement);
   container.addEventListener("mouseenter", () => {

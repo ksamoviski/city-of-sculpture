@@ -23,6 +23,7 @@
   align-items: center;
 }
 
+
 .navBarItem {
   font-size: 1.9rem;
   text-transform: uppercase;
@@ -30,6 +31,3 @@
   color: white;
 }
 
-/* .navBarItem:hover {
-  color: #c1272d;
-} */

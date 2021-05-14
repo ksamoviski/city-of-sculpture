@@ -1,10 +1,9 @@
 
-
 export const PennyFarthing = (leftSpot, bigRotator, smallRotator) => {
   
-    let bigwheel = document.getElementById("Bigwheel");
-    let smallwheel = document.getElementById("Smallwheel");
-    let pennyFrame = document.getElementById('PennyFrame');
+    let bigwheel = document.getElementById("bigWheel");
+    let smallwheel = document.getElementById("smallWheel");
+    let pennyFrame = document.getElementById('pennyFrame');
   
     function placeTheWheel() {
       bigwheel.style.left = leftSpot + "px";

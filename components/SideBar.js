@@ -19,17 +19,6 @@ const ourPanels = [
   Contact,
 ];
 
-let littleDoorOpen = false;
-
-const menuItemFunctions = {
-  "About Us": AboutUsPanel,
-  "The Sculptures": Sculptures,
-  "The Artists": ArtistsPanel,
-  "Getting Around": GettingAround,
-  "Sculptural Bike Racks": Bikes,
-  Hamilton: Hamilton,
-  "Contact Us": Contact,
-};
 
 const NavItem = (menuKeyValue) => {
   let container = BetterElement("div", "navItemDiv");
@@ -74,6 +63,15 @@ export const SideBar = {
     });
 
     sideBar.appendChild(menuContainer);
+
+    sideBar.addEventListener('mouseleave', ()=> {
+        ourPanels.forEach(panel => {
+            if (panel.isOpen) {
+                panel.close();
+            }
+        })
+    })
+
     app.appendChild(sideBar);
     setTimeout(() => {
       sideBar.style.transform = "translateX(10vw)";

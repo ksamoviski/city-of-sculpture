@@ -5,7 +5,7 @@ export const Sculptures = {
   title: 'The Sculptures',
 
   open: function () {
-    console.log("sculpt this");
+    
     this.isOpen = true;
   },
 

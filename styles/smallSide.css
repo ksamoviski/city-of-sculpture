@@ -14,6 +14,10 @@
   line-height: 1.6em;
 }
 
+.listForArtists {
+  list-style: none;
+}
+
 .artistName {
   font-size: 1.2rem;
   font-weight: 900;

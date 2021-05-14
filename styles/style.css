@@ -4,6 +4,7 @@ html {
     "メイリオ", "Meiryo", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
   letter-spacing: 0.3em;
   list-style: none;
+  text-decoration: none;
 }
 
 body {

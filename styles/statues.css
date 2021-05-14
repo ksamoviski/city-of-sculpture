@@ -1,0 +1,40 @@
+.outerTilesDiv {
+  position: relative;
+  width: 90vw;
+  padding-bottom: 90%;
+  display: grid;
+  grid-gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(15vh, 1fr));
+  grid-auto-rows: 15vh;
+  grid-auto-flow: dense;
+  background: whitesmoke;
+}
+.tileDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.statueImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 3px solid black;
+}
+
+.horizontal {
+  grid-column: span 3;
+}
+
+.vertical {
+  grid-row: span 3;
+}
+
+.big {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.huge {
+    grid-column: span 2;
+    grid-row: span 3;
+}

@@ -2,7 +2,7 @@
   position: absolute;
   margin-left: 5rem;
   bottom: 5vh;
-  /* transform: translateX(-22vw); */
+
 }
 
 #pennyFrame {
@@ -10,16 +10,12 @@
   left: 11rem;
   bottom: 11vh;
   margin-bottom: 1rem;
-  /* transform: translateX(-22vw); */
-
-
 }
 
 #smallWheel {
   position: absolute;
   bottom: 5vh;
   margin-bottom: 1rem;
-  /* transform: translateX(-22vw); */
 
 
 }

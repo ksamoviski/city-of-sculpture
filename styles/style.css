@@ -39,5 +39,6 @@ header {
   bottom: 0;
   width: 105vw;
   height: 1rem;
+  z-index: 1;
   background-color: #c1272d;
 }

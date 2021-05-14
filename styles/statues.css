@@ -1,5 +1,6 @@
 .outerTilesDiv {
-  position: relative;
+  position: absolute;
+  top: 20vh;
   width: 90vw;
   padding-bottom: 90%;
   display: grid;
@@ -8,6 +9,9 @@
   grid-auto-rows: 15vh;
   grid-auto-flow: dense;
   background: whitesmoke;
+  transform: translateX(100vw);
+  transition: 2s cubic-bezier(0.4, 0, 0.58, 1);
+
 }
 .tileDiv {
   display: flex;

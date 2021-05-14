@@ -24,6 +24,8 @@ export const Sculptures = {
 
     app.appendChild(outerTilesDiv);
 
+    setTimeout(()=> outerTilesDiv.rollout('translateX(0vw)'), 300);
+
     this.isOpen = true;
   },
 

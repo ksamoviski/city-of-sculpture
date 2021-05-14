@@ -1,7 +1,7 @@
 .outerTilesDiv {
   position: absolute;
   top: 20vh;
-  width: 90vw;
+  width: 200vw;
   padding-bottom: 90%;
   display: grid;
   grid-gap: 12px;

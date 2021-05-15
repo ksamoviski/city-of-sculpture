@@ -1,5 +1,6 @@
 import { BetterElement } from "./BetterElement.js";
 import { PennyFarthing } from "./PennyFarthing.js";
+import { shutterBike } from "./PennyFarthing.js";
 
 let app = document.getElementById("app");
 
@@ -26,27 +27,36 @@ export const Bikes = {
   },
 
   open: function () {
+    bikeDivPanel.style.opacity = '1';
     PennyFarthing(0, 0, 0);
-
     this.isOpen = true;
   },
 
   close: function () {
+    bikeDivPanel.style.opacity = '0';
+    setTimeout(()=> sculptureDivPanel.rollout('translateX(100vw)'), 500);
+
+
+
     let startingOpacity = 0;
 
-    function shutterBike(startingOpacity) {
-      if (startingOpacity < 100) {
-        setTimeout(() => {
-          for (let part in bikeParts) {
-            bikeParts[part].style.opacity =
-              1 - (startingOpacity * 0.01).toString();
-          }
-          startingOpacity++;
-          shutterBike(startingOpacity);
-        }, 30);
-      }
-    }
+    // function shutterBike(startingOpacity) {
+    //   if (startingOpacity < 100) {
+    //     setTimeout(() => {
+    //       for (let part in bikeParts) {
+    //         bikeParts[part].style.opacity =
+    //           1 - (startingOpacity * 0.01).toString();
+    //       }
+    //       startingOpacity++;
+    //       shutterBike(startingOpacity);
+    //     }, 30);
+    //   }
+    // }
+    // shutterBike(startingOpacity);
+
     shutterBike(startingOpacity);
+
+
     setTimeout(() => {
       for (let part in bikeParts) {
         bikeParts[part].parentElement.removeChild(bikeParts[part]);

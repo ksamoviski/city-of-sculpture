@@ -20,7 +20,7 @@ export const Sculptures = {
       image.src = "images/sculptures/" + sculptureImage;
       tileDiv.appendChild(image);
 
-      tileDiv.addEventListener("mouseenter", () => {
+      tileDiv.addEventListener("click", () => {
         highlightImage(true);
         showDeets(true);
       });
@@ -56,12 +56,17 @@ export const Sculptures = {
 
   open: function () {
     sculptureDivPanel.style.display = "grid";
+    sculptureDivPanel.style.opacity = '1'; 
+
+
     setTimeout(() => sculptureDivPanel.rollout("translateX(0vw)"), 100);
 
     this.isOpen = true;
   },
 
   close: function () {
+    sculptureDivPanel.style.opacity = '0';
+    setTimeout(()=> sculptureDivPanel.rollout('translateX(100vw)'), 500)
     this.isOpen = false;
   },
 };

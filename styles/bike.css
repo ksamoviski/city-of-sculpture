@@ -1,18 +1,18 @@
-#bigWheel {
+.bigWheel {
   position: absolute;
   margin-left: 5rem;
   bottom: 5vh;
 
 }
 
-#pennyFrame {
+.pennyFrame {
   position: absolute;
   transform: translateX(-16.5rem);
   bottom: 11vh;
   margin-bottom: .75rem;
 }
 
-#smallWheel {
+.smallWheel {
   position: absolute;
   bottom: 5vh;
   margin-bottom: 1rem;

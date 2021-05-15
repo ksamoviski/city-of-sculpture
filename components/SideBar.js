@@ -62,13 +62,13 @@ export const SideBar = {
 
     sideBar.appendChild(menuContainer);
 
-    sideBar.addEventListener("mouseleave", () => {
-      ourPanels.forEach((panel) => {
-        if (panel.isOpen) {
-          panel.close();
-        }
-      });
-    });
+    // sideBar.addEventListener("mouseleave", () => {
+    //   ourPanels.forEach((panel) => {
+    //     if (panel.isOpen) {
+    //       panel.close();
+    //     }
+    //   });
+    // });
 
     app.appendChild(sideBar);
     setTimeout(() => {

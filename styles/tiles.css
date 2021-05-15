@@ -1,8 +1,8 @@
 .sculptureDivPanel {
   position: absolute;
-  top: 20vh;
+  top: 23vh;
   width: 200vw;
-  padding-bottom: 90%;
+  padding-bottom: 80%;
   display: none;
   grid-gap: 12px;
   grid-template-columns: repeat(auto-fit, minmax(15vh, 1fr));
@@ -15,7 +15,7 @@
 
 .bikeDivPanel {
   position: absolute;
-  top: 20vh;
+  top: 23vh;
   width: 75vw;
   padding-bottom: 75%;
   display: none;
@@ -25,6 +25,7 @@
   grid-auto-flow: dense;
   background: whitesmoke;
   transform: translateX(-87vw);
+
 }
 
 

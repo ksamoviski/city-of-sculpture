@@ -17,7 +17,7 @@ export const Sculptures = {
     for (let statueImage in listOfStatues) {
       let tileDiv = BetterElement("div", "tileDiv", listOfStatues[statueImage]);
       let image = BetterElement("img", "statueImage");
-      image.src = "images/statues/" + statueImage;
+      image.src = "images/sculptures/" + statueImage;
       tileDiv.appendChild(image);
 
       tileDiv.addEventListener("mouseenter", () => {
@@ -41,9 +41,14 @@ export const Sculptures = {
           let imageDetails = BetterElement("p", "imageDetails");
           imageDetails.innerText = "Howdy, I am a sculpture";
           tileDiv.appendChild(imageDetails);
-          setTimeout(() => {
-            imageDetails.rollout("translateY(-40%)");
-          }, 10);
+
+          setTimeout(()=> { imageDetails.classList.toggle('open')}, 10)
+          
+
+          // setTimeout(() => {
+          //   imageDetails.rollout("translateY(-80px)");
+          // }, 10);
+
         } else {
           tileDiv.removeChild(tileDiv.querySelector('.imageDetails'));
         }

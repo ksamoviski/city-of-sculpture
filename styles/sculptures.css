@@ -47,14 +47,26 @@
     grid-row: span 3;
 }
 
+.imageDetails.open {
+  position: absolute;
+  bottom: 0;
+  padding: .5rem;
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: gold;
+  opacity: 1;
+  transform: translateY(-50px);
+  transition: .5s cubic-bezier(0.3, 0, 0.5, 1);
+}
+
 .imageDetails {
   position: absolute;
   bottom: 0;
   padding: .5rem;
-  /* margin: 15% auto; */
   font-size: 1.2rem;
   font-weight: 900;
-  color: gold;
+  color: black;
+  opacity: .1;
   transition: .5s cubic-bezier(0.3, 0, 0.5, 1);
 
 

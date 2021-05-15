@@ -6,6 +6,8 @@ import { GettingAround } from "./GettingAround.js";
 import { Bikes } from "./Bikes.js";
 import { Hamilton } from "./Hamilton.js";
 import { Contact } from "./Contact.js";
+import { HomeBackground } from "./HomeBackground.js";
+
 
 const app = document.getElementById("app");
 
@@ -26,6 +28,10 @@ const NavItem = (menuKeyValue) => {
   textElement.innerText = menuKeyValue;
   container.appendChild(textElement);
   container.addEventListener("mouseenter", () => {
+
+    HomeBackground.close()
+
+
 
     for (let menuItemElement of Array.from(document.querySelectorAll('.navBarItem'))) {
         menuItemElement.style.color = 'white';

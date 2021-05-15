@@ -7,17 +7,17 @@ const H = "horizontal";
 const V = "vertical";
 const HUGE = "huge";
 
-let outerTilesDiv = BetterElement("div", "outerTilesDiv");
+let sculptureDivPanel = BetterElement("div", "sculptureDivPanel");
 
 export const Sculptures = {
   isOpen: false,
   title: "The Sculptures",
 
   attachImages: function () {
-    for (let statueImage in listOfStatues) {
-      let tileDiv = BetterElement("div", "tileDiv", listOfStatues[statueImage]);
-      let image = BetterElement("img", "statueImage");
-      image.src = "images/sculptures/" + statueImage;
+    for (let sculptureImage in listOfSculptures) {
+      let tileDiv = BetterElement("div", "tileDiv", listOfSculptures[sculptureImage]);
+      let image = BetterElement("img", "sculptureImage");
+      image.src = "images/sculptures/" + sculptureImage;
       tileDiv.appendChild(image);
 
       tileDiv.addEventListener("mouseenter", () => {
@@ -43,26 +43,20 @@ export const Sculptures = {
           tileDiv.appendChild(imageDetails);
 
           setTimeout(()=> { imageDetails.classList.toggle('open')}, 10)
-          
-
-          // setTimeout(() => {
-          //   imageDetails.rollout("translateY(-80px)");
-          // }, 10);
-
         } else {
           tileDiv.removeChild(tileDiv.querySelector('.imageDetails'));
         }
       }
 
-      outerTilesDiv.appendChild(tileDiv);
+      sculptureDivPanel.appendChild(tileDiv);
     }
 
-    app.appendChild(outerTilesDiv);
+    app.appendChild(sculptureDivPanel);
   },
 
   open: function () {
-    outerTilesDiv.style.display = "grid";
-    setTimeout(() => outerTilesDiv.rollout("translateX(0vw)"), 100);
+    sculptureDivPanel.style.display = "grid";
+    setTimeout(() => sculptureDivPanel.rollout("translateX(0vw)"), 100);
 
     this.isOpen = true;
   },
@@ -72,7 +66,7 @@ export const Sculptures = {
   },
 };
 
-const listOfStatues = {
+const listOfSculptures = {
   "hamilton-thecape-2200x2401.jpeg": HUGE,
   "SC_spacetower-275x413.jpeg": V,
   "SC-bridge-medallions-north-551x413.jpeg": HUGE,

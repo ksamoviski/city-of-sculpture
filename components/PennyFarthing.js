@@ -17,9 +17,13 @@ bikeParts.pennyFrame.id = "pennyFrame";
 bikeParts.smallWheel.id = "smallWheel";
 
 export const PennyFarthing = (leftSpot, bigRotator, smallRotator) => {
+let racksPanel = document.querySelector('.bikeDivPanel');
+
   for (let part in bikeParts) {
     app.appendChild(bikeParts[part]);
   }
+
+  racksPanel.style.display = "grid";
 
   function rideOldBike() {
     function placeTheWheel() {
@@ -29,12 +33,13 @@ export const PennyFarthing = (leftSpot, bigRotator, smallRotator) => {
       bikeParts.smallWheel.style.left = leftSpot + "px";
       bikeParts.smallWheel.style.transform = `rotate(${smallRotator}deg)`;
       bikeParts.pennyFrame.style.left = leftSpot - 20 + "px";
+      racksPanel.style.left = leftSpot + 'px';
 
       leftSpot += 5;
       bigRotator += 3;
       smallRotator += 12;
 
-      if (leftSpot < window.innerWidth + 100) {
+      if (leftSpot < window.innerWidth + 275) {
         requestAnimationFrame(() => {
           rideOldBike(leftSpot, bigRotator, smallRotator);
         });

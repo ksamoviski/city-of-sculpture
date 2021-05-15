@@ -1,16 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+html {
+  /* font-family: 'calibre-Bold', sans-serif;
+  font-family: "Calibre-Bold", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",
+    "メイリオ", "Meiryo", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  letter-spacing: 0.3em; */
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  list-style: none;
+}
+
+body {
+  margin:0;
+  
+}
+
+#app {
+/* 
+  background-image: url("../images/landingPageImg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+   */
+}
 
 
 header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 10vh;
-    top: 0;
-    background: #565655;
-    position: fixed;
-    transform: translateY(-10vh);
-    z-index: 1;
-    box-shadow: 1px 1px lightgray;
-    transition: cubic-bezier(0.4, 0, 0.58, 1) 0.75s;
-  }
+  align-items: center;
+  box-shadow: 2px 2px #c1272d;
+  background: white;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  transform: translateY(-20vh);
+  transition: 1s cubic-bezier(0.4, 0, 0.58, 1);
+  width: 100vw;
+  z-index: 2;
+}
+
+.logoDiv {
+  background-image: url("../images/logo.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 80%;
+  width: 25%;
+}
+
+.aboutImage {
+  background-image: url(../images/landingPageImg.jpg);
+  position: fixed;
+  /* bottom: 0vh; */
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  margin-top: 20vh;
+  z-index: -2;
+
+}
+
+.footer {
+  background-color: #c1272d;
+  bottom: 0;
+  height: 1rem;
+  position: fixed;
+  width: 100vw;
+}

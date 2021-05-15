@@ -1,0 +1,37 @@
+.sideBar {
+  align-items: center;
+  background: #c1272d;
+  flex-direction: column;
+  display: flex;
+  height: 100vh;
+  position: relative;
+  transform: translateX(-30vw);
+  transition: 1.2s cubic-bezier(0.4, 0, 0.4, 1);
+  width: 27vw;
+  z-index: 1;
+}
+
+.menuContainer {
+    margin-top: 25vh;
+    width: 100%;
+}
+
+.navItemDiv {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.navBarItem {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 500;
+  /* padding:3rem; */
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* .navBarItem:hover {
+  color: #c1272d;
+} */

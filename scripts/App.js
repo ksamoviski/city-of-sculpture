@@ -1,11 +1,12 @@
-import { Header } from "../components/Header.js";
+import { HeaderFooter } from "../components/HeaderFooter.js";
+import { HomeBackground } from"../components/HomeBackground.js";
 
 const app = document.getElementById("app");
 
 class App {
   static renderBasicPage() {
-    console.log("Maria's walrus is here");
-    Header.render();
+    HeaderFooter.render();
+  HomeBackground.render();
   }
 }
 

@@ -1,0 +1,21 @@
+#bigWheel {
+  bottom: 5vh;
+  margin-left: 5rem;
+  position: absolute;
+
+}
+
+#pennyFrame {
+  bottom: 11vh;
+  left: 11rem;
+  margin-bottom: 1rem;
+  position: absolute;
+}
+
+#smallWheel {
+  bottom: 5vh;
+  margin-bottom: 1rem;
+  position: absolute;
+
+
+}

@@ -1,0 +1,32 @@
+.smallSide {
+  border-bottom:2px solid #c1272d;
+  border-right: 2px solid #c1272d; 
+  border-top: 2px solid #c1272d;
+  position: absolute;
+  left: 15vw;
+  top: 24vh;
+  /* box-shadow: 2px 2px #c1272d; */
+  transition: 0.7s cubic-bezier(0.4, 0, 0.4, 1);
+}
+
+.aboutUsStatementDiv {
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6em;
+  margin: 2rem;
+}
+
+.artistName {
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin-left: 4rem;
+
+}
+
+.xOut {
+  color: #c1272d;
+  margin-top: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}

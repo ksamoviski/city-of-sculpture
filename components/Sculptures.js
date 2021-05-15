@@ -7,24 +7,57 @@ const H = "horizontal";
 const V = "vertical";
 const HUGE = "huge";
 
+let outerTilesDiv = BetterElement("div", "outerTilesDiv");
+
 export const Sculptures = {
   isOpen: false,
   title: "The Sculptures",
 
-  open: function () {
-    let outerTilesDiv = BetterElement("div", "outerTilesDiv");
-
+  attachImages: function () {
     for (let statueImage in listOfStatues) {
       let tileDiv = BetterElement("div", "tileDiv", listOfStatues[statueImage]);
       let image = BetterElement("img", "statueImage");
       image.src = "images/statues/" + statueImage;
       tileDiv.appendChild(image);
+
+      tileDiv.addEventListener("mouseenter", () => {
+        highlightImage(true);
+        showDeets(true);
+      });
+      tileDiv.addEventListener("mouseleave", () => {
+        highlightImage(false);
+        showDeets(false);
+      });
+
+      function highlightImage(on) {
+        on
+          ? (image.style.filter =
+              "brightness(80%) hue-rotate(200deg) saturate(60%) invert(20%)")
+          : (image.style.filter = "none");
+      }
+
+      function showDeets(on) {
+        if (on) {
+          let imageDetails = BetterElement("p", "imageDetails");
+          imageDetails.innerText = "Howdy, I am a sculpture";
+          tileDiv.appendChild(imageDetails);
+          setTimeout(() => {
+            imageDetails.rollout("translateY(-40%)");
+          }, 10);
+        } else {
+          tileDiv.removeChild(tileDiv.querySelector('.imageDetails'));
+        }
+      }
+
       outerTilesDiv.appendChild(tileDiv);
     }
 
     app.appendChild(outerTilesDiv);
+  },
 
-    setTimeout(()=> outerTilesDiv.rollout('translateX(0vw)'), 10);
+  open: function () {
+    outerTilesDiv.style.display = "grid";
+    setTimeout(() => outerTilesDiv.rollout("translateX(0vw)"), 100);
 
     this.isOpen = true;
   },

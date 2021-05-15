@@ -3,6 +3,7 @@
   top: 24vh;
   left: 15vw;
   box-shadow: 2px 2px #c1272d;
+  background: white;
   border: 2px solid #c1272d;
   transition: 0.7s cubic-bezier(0.4, 0, 0.4, 1);
 }

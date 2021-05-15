@@ -32,7 +32,7 @@ export const Sculptures = {
       function highlightImage(on) {
         on
           ? (image.style.filter =
-              "brightness(80%) hue-rotate(200deg) saturate(60%) invert(20%)")
+              "brightness(80%) hue-rotate(180deg) saturate(30%) invert(20%)")
           : (image.style.filter = "none");
       }
 

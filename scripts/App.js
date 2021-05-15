@@ -1,12 +1,16 @@
 import { HeaderFooter } from "../components/HeaderFooter.js";
-import { HomeBackground } from"../components/HomeBackground.js";
+import { Sculptures } from "../components/Sculptures.js";
+import { Bikes } from "../components/Bikes.js";
+import { HomeBackground } from "../components/HomeBackground.js";
 
 const app = document.getElementById("app");
 
 class App {
   static renderBasicPage() {
     HeaderFooter.render();
-  HomeBackground.render();
+    Sculptures.attachImages();
+    Bikes.attachImages();
+    HomeBackground.render();
   }
 }
 

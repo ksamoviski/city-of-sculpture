@@ -21,37 +21,33 @@ const ourPanels = [
   Contact,
 ];
 
-
 const NavItem = (menuKeyValue) => {
   let container = BetterElement("div", "navItemDiv");
   let textElement = BetterElement( 'h2',"navBarItem");
   textElement.innerText = menuKeyValue;
   container.appendChild(textElement);
+
   container.addEventListener("mouseenter", () => {
+    container.style.backgroundColor = "white";
+    textElement.style.color = "#c1272d";
+  });
 
-    HomeBackground.close()
 
+  container.addEventListener("mouseleave", () => {
+    container.style.backgroundColor = "#c1272d";
+    textElement.style.color = "white";
+  });
 
+  container.addEventListener("click", () => {
 
-    for (let menuItemElement of Array.from(document.querySelectorAll('.navBarItem'))) {
-        menuItemElement.style.color = 'white';
-    }
-    for (let container of Array.from(document.querySelectorAll('.navItemDiv'))) {
-        container.style.backgroundColor = '#c1272d';
-    }
     for (let panel of ourPanels) {
       if (panel.isOpen) {
         panel.close();
-
-        container.style.backgroundColor = "#c1272d";
-        textElement.style.color = "white";
       }
       if (panel.title === menuKeyValue) {
         panel.open();
       }
     }
-    container.style.backgroundColor = "white";
-    textElement.style.color = "#c1272d";
   });
 
   return container;
@@ -70,13 +66,13 @@ export const SideBar = {
 
     sideBar.appendChild(menuContainer);
 
-    sideBar.addEventListener('mouseleave', ()=> {
-        ourPanels.forEach(panel => {
-            if (panel.isOpen) {
-                panel.close();
-            }
-        })
-    })
+    // sideBar.addEventListener("mouseleave", () => {
+    //   ourPanels.forEach((panel) => {
+    //     if (panel.isOpen) {
+    //       panel.close();
+    //     }
+    //   });
+    // });
 
     app.appendChild(sideBar);
     setTimeout(() => {

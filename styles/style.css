@@ -9,6 +9,7 @@ html {
   font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
   list-style: none;
+  text-decoration: none;
 }
 
 body {
@@ -63,6 +64,8 @@ header {
   background-color: #c1272d;
   bottom: 0;
   height: 1rem;
+  z-index: 1;
   position: fixed;
   width: 100vw;
+
 }

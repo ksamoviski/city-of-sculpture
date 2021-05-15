@@ -1,29 +1,47 @@
+import { BetterElement } from "./BetterElement.js";
+
+const app = document.getElementById("app");
+
+let bikeParts = {
+  bigWheel: BetterElement("img", "pennyFarthing"),
+  pennyFrame: BetterElement("img", "pennyFarthing"),
+  smallWheel: BetterElement("img", "pennyFarthing"),
+};
+
+bikeParts.bigWheel.src = "../images/bigWheel.png";
+bikeParts.pennyFrame.src = "../images/pennyFrameWithTow.png";
+bikeParts.smallWheel.src = "../images/smallWheel.png";
+
+bikeParts.bigWheel.id = "bigWheel";
+bikeParts.pennyFrame.id = "pennyFrame";
+bikeParts.smallWheel.id = "smallWheel";
 
 export const PennyFarthing = (leftSpot, bigRotator, smallRotator) => {
-  
-    let bigwheel = document.getElementById("bigWheel");
-    let smallwheel = document.getElementById("smallWheel");
-    let pennyFrame = document.getElementById('pennyFrame');
-  
+  for (let part in bikeParts) {
+    app.appendChild(bikeParts[part]);
+  }
+
+  function rideOldBike() {
     function placeTheWheel() {
-      bigwheel.style.left = leftSpot + "px";
-      bigwheel.style.transform = `rotate(${bigRotator}deg)`;
-  
-      smallwheel.style.left = leftSpot + 'px';
-      smallwheel.style.transform = `rotate(${smallRotator}deg)`;
-      pennyFrame.style.left = (leftSpot - 20)  + 'px';
-  
+      bikeParts.bigWheel.style.left = leftSpot + "px";
+      bikeParts.bigWheel.style.transform = `rotate(${bigRotator}deg)`;
+
+      bikeParts.smallWheel.style.left = leftSpot + "px";
+      bikeParts.smallWheel.style.transform = `rotate(${smallRotator}deg)`;
+      bikeParts.pennyFrame.style.left = leftSpot - 20 + "px";
+
       leftSpot += 5;
       bigRotator += 3;
       smallRotator += 12;
-  
+
       if (leftSpot < window.innerWidth + 100) {
-          requestAnimationFrame(() => {
-              PennyFarthing(leftSpot, bigRotator, smallRotator);
-          });
+        requestAnimationFrame(() => {
+          rideOldBike(leftSpot, bigRotator, smallRotator);
+        });
       }
     }
-  
+
     requestAnimationFrame(placeTheWheel);
-  };
-  
+  }
+  rideOldBike();
+};

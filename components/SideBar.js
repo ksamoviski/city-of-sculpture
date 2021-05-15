@@ -44,6 +44,11 @@ const NavItem = (menuKeyValue) => {
       if (panel.isOpen) {
         panel.close();
       }
+
+      if (menuKeyValue === 'The Sculptures' || menuKeyValue === 'The Artists' || menuKeyValue === 'Getting Around') {
+        HomeBackground.close();
+      }
+
       if (panel.title === menuKeyValue) {
         panel.open();
       }

@@ -1,9 +1,6 @@
 .bigWheel {
-<<<<<<< HEAD
   position: absolute;
   margin-left: 5rem;
-=======
->>>>>>> 066cc4fda9de8da5e02d423906c94a0ebcebcf27
   bottom: 5vh;
   margin-left: 5rem;
   position: absolute;
@@ -19,10 +16,7 @@
 }
 
 .smallWheel {
-<<<<<<< HEAD
   position: absolute;
-=======
->>>>>>> 066cc4fda9de8da5e02d423906c94a0ebcebcf27
   bottom: 5vh;
   margin-bottom: 1rem;
   position: absolute;

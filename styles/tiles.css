@@ -3,6 +3,7 @@
   top: 23vh;
   width: 200vw;
   padding-bottom: 80%;
+  cursor: pointer;
   display: none;
   grid-gap: 12px;
   grid-template-columns: repeat(auto-fit, minmax(15vh, 1fr));
@@ -10,7 +11,7 @@
   grid-auto-flow: dense;
   background: whitesmoke;
   transform: translateX(100vw);
-  transition: 2s cubic-bezier(0.3, 0, 0.5, 1);
+  transition: 2.5s cubic-bezier(0.3, 0, 0.5, 1);
 }
 
 .bikeDivPanel {
@@ -25,7 +26,6 @@
   grid-auto-flow: dense;
   background: whitesmoke;
   transform: translateX(-87vw);
-
 }
 
 

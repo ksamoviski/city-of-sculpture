@@ -8,6 +8,7 @@ export const ArtistsPanel = {
 
   open: function () {
     let extraSide = BetterElement("div", "smallSide");
+    let listForArtists = BetterElement('ul', 'listForArtists');
     extraSide.id = "littleSide";
     extraSide.style.width = "20vw";
     extraSide.style.height = "50vh";
@@ -17,7 +18,7 @@ export const ArtistsPanel = {
     for (let i = 1; i < 30; i++) {
         let artistElement = BetterElement('li', 'artistName');
         artistElement.innerText = `artist ${i}`;
-        extraSide.appendChild(artistElement);
+        listForArtists.appendChild(artistElement);
     }
 
     extraSide.addEventListener('mouseenter', ()=> {
@@ -27,6 +28,7 @@ export const ArtistsPanel = {
     })
 
 
+    extraSide.appendChild(listForArtists);
     app.appendChild(extraSide);
 
     setTimeout(() => {

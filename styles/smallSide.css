@@ -4,8 +4,9 @@
   border-top: 2px solid #c1272d;
   position: absolute;
   left: 15vw;
+  background: white;
+  border: 2px solid #c1272d;
   top: 24vh;
-  /* box-shadow: 2px 2px #c1272d; */
   transition: 0.7s cubic-bezier(0.4, 0, 0.4, 1);
 }
 
@@ -14,6 +15,10 @@
   font-weight: 300;
   line-height: 1.6em;
   margin: 2rem;
+}
+
+.listForArtists {
+  list-style: none;
 }
 
 .artistName {

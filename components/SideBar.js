@@ -6,6 +6,8 @@ import { GettingAround } from "./GettingAround.js";
 import { Bikes } from "./Bikes.js";
 import { Hamilton } from "./Hamilton.js";
 import { Contact } from "./Contact.js";
+import { HomeBackground } from "./HomeBackground.js";
+
 
 const app = document.getElementById("app");
 
@@ -21,7 +23,7 @@ const ourPanels = [
 
 const NavItem = (menuKeyValue) => {
   let container = BetterElement("div", "navItemDiv");
-  let textElement = BetterElement("h2", "navBarItem");
+  let textElement = BetterElement( 'h2',"navBarItem");
   textElement.innerText = menuKeyValue;
   container.appendChild(textElement);
 
@@ -30,12 +32,14 @@ const NavItem = (menuKeyValue) => {
     textElement.style.color = "#c1272d";
   });
 
+
   container.addEventListener("mouseleave", () => {
     container.style.backgroundColor = "#c1272d";
     textElement.style.color = "white";
   });
 
   container.addEventListener("click", () => {
+
     for (let panel of ourPanels) {
       if (panel.isOpen) {
         panel.close();

@@ -3,19 +3,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #c1272d;
   flex-direction: column;
   display: flex;
   height: 100vh;
+  background: #c1272d;
   transform: translateX(-30vw);
   transition: 1.2s cubic-bezier(0.4, 0, 0.4, 1);
-  width: 27vw;
+  /* width: 23vw; */
   z-index: 1;
 }
 
 .menuContainer {
-    margin-top: 25vh;
-    width: 100%;
+  margin-top: 25vh;
+  width: 100%;
 }
 
 .navItemDiv {
@@ -30,6 +30,7 @@
   color: white;
   font-size: 1.5rem;
   font-weight: 500;
+  padding: 0 3rem;
   /* padding:3rem; */
   text-transform: uppercase;
   white-space: nowrap;

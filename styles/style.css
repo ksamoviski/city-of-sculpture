@@ -29,7 +29,8 @@ body {
 
 header {
   align-items: center;
-  box-shadow: 2px 2px #c1272d;
+  /* box-shadow: 2px 2px #c1272d; */
+  border-bottom: 3px solid #c1272d;
   background: white;
   display: flex;
   justify-content: center;
@@ -42,11 +43,11 @@ header {
 }
 
 .logoDiv {
-  background-image: url("../images/logo.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  height: 80%;
-  width: 25%;
+  /* background-image: url("../images/logo.png"); */
+  /* background-repeat: no-repeat; */
+  /* background-size: contain; */
+  /* height: 80%; */
+  /* width: 25%; */
 }
 
 .aboutImage {

@@ -2,12 +2,15 @@ import { BetterElement } from "./BetterElement.js";
 
 const app = document.getElementById("app");
 
-const BIG = "big";
-const H = "horizontal";
-const V = "vertical";
-const HUGE = "huge";
+const BIG = "big",
+  H = "horizontal",
+  V = "vertical",
+  HUGE = "huge";
 
 let sculptureDivPanel = BetterElement("div", "sculptureDivPanel");
+let windowFrame = BetterElement("div", "windowFrame");
+let rightArrow = BetterElement("button", "carouselButtons", "arrow-right");
+let leftArrow = BetterElement("button", "carouselButtons", "arrow-left");
 
 export const Sculptures = {
   isOpen: false,
@@ -57,17 +60,21 @@ export const Sculptures = {
       sculptureDivPanel.appendChild(tileDiv);
     }
 
-    app.appendChild(sculptureDivPanel);
+    app.appendChild(rightArrow);
+    app.appendChild(leftArrow);
+
+    app.appendChild(windowFrame);
+    windowFrame.appendChild(sculptureDivPanel);
   },
 
-  open: function () { 
+  open: function () {
     if (!this.isOpen) {
       sculptureDivPanel.style.display = "grid";
       sculptureDivPanel.style.opacity = "1";
       setTimeout(() => sculptureDivPanel.rollout("translateX(0vw)"), 100);
+      sculptureDivPanel.currentPosition = 0;
       this.isOpen = true;
     }
-
   },
 
   close: function () {
@@ -77,7 +84,22 @@ export const Sculptures = {
       this.isOpen = false;
     }
   },
+
+slide: function(direction) {
+    sculptureDivPanel.rollout(`translateX(${sculptureDivPanel.currentPosition + direction}vw)`);
+    sculptureDivPanel.currentPosition += direction;
+},
+
+
+
+
 };
+
+rightArrow.addEventListener("click", () => {
+  Sculptures.slide(-15);
+});
+
+leftArrow.addEventListener('click', ()=> { Sculptures.slide(15) });
 
 const listOfSculptures = {
   "hamilton-thecape-2200x2401.jpeg": HUGE,

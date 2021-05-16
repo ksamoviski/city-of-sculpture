@@ -69,6 +69,8 @@ export const Sculptures = {
 
   open: function () {
     if (!this.isOpen) {
+      rightArrow.style.display = 'block';
+      leftArrow.style.display = 'block';
       sculptureDivPanel.style.display = "grid";
       sculptureDivPanel.style.opacity = "1";
       setTimeout(() => sculptureDivPanel.rollout("translateX(0vw)"), 100);
@@ -79,27 +81,29 @@ export const Sculptures = {
 
   close: function () {
     if (this.isOpen) {
+      rightArrow.style.display = 'none';
+      leftArrow.style.display = 'none';
       sculptureDivPanel.style.opacity = "0";
       setTimeout(() => sculptureDivPanel.rollout("translateX(100vw)"), 500);
       this.isOpen = false;
     }
   },
 
-slide: function(direction) {
-    sculptureDivPanel.rollout(`translateX(${sculptureDivPanel.currentPosition + direction}vw)`);
+  slide: function (direction) {
+    sculptureDivPanel.rollout(
+      `translateX(${sculptureDivPanel.currentPosition + direction}vw)`
+    );
     sculptureDivPanel.currentPosition += direction;
-},
-
-
-
-
+  },
 };
 
 rightArrow.addEventListener("click", () => {
   Sculptures.slide(-15);
 });
 
-leftArrow.addEventListener('click', ()=> { Sculptures.slide(15) });
+leftArrow.addEventListener("click", () => {
+  Sculptures.slide(15);
+});
 
 const listOfSculptures = {
   "hamilton-thecape-2200x2401.jpeg": HUGE,

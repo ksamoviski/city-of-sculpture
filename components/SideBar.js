@@ -36,10 +36,13 @@ export const SideBar = {
         closeEverythingExceptSculptures(panel);
         if (panel === Bikes || panel === GettingAround) {
           Sculptures.close();
-        } else if (panel === AboutUsPanel || panel === ArtistsPanel || panel === Contact) {
+        } else if (
+          panel === AboutUsPanel ||
+          panel === ArtistsPanel ||
+          panel === Contact
+        ) {
           Sculptures.open();
         }
-
       });
 
       menuContainer.appendChild(sideBarMenuItem);
@@ -49,7 +52,7 @@ export const SideBar = {
 
     app.appendChild(this.sideBar);
     setTimeout(() => {
-      sideBar.style.transform = "translateX(10vw)";
+      sideBar.style.transform = "translateX(14vw)";
     }, 150);
 
     function closeEverythingExceptSculptures(panel) {

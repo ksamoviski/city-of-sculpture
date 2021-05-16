@@ -1,8 +1,12 @@
 .mapPanel {
+  position: absolute;
+  top: 22vh;
   transform: scale(1, .4);
   transition: 1s;
+  filter: opacity(0) hue-rotate(180deg) saturate(30%) invert(20%);
 }
 
 .open {
     transform: scale(1, 1);
+    filter: opacity(1);
 }

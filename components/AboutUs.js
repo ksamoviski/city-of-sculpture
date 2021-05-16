@@ -23,7 +23,7 @@ export const AboutUsPanel = {
     app.appendChild(extraSide);
 
     setTimeout(() => {
-      extraSide.rollout("translateX(12vw)");
+      extraSide.rollout("translateX(16vw)");
     }, 10);
     this.isOpen = true;
   },

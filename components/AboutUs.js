@@ -7,7 +7,7 @@ const aboutUsStatement =
 
 export const AboutUsPanel = {
   isOpen: false,
-  title: 'About Us',
+  title: "About Us",
 
   open: function () {
     let extraSide = BetterElement("div", "smallSide");
@@ -28,11 +28,15 @@ export const AboutUsPanel = {
     this.isOpen = true;
   },
 
-  close: function() {
-    let littleSide = document.getElementById('littleSide');
-    littleSide.rollout('translateX(0vw)');
+  close: function () {
+    if (this.isOpen) {
+      let littleSide = document.getElementById("littleSide");
+      littleSide.rollout("translateX(0vw)");
 
-    setTimeout(()=> { littleSide.parentElement.removeChild(littleSide) }, 300);
-    this.isOpen = false;
-  }
+      setTimeout(() => {
+        littleSide.parentElement.removeChild(littleSide);
+      }, 300);
+      this.isOpen = false;
+    }
+  },
 };

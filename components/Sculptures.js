@@ -15,7 +15,11 @@ export const Sculptures = {
 
   attachImages: function () {
     for (let sculptureImage in listOfSculptures) {
-      let tileDiv = BetterElement("div", "tileDiv", listOfSculptures[sculptureImage]);
+      let tileDiv = BetterElement(
+        "div",
+        "tileDiv",
+        listOfSculptures[sculptureImage]
+      );
       let image = BetterElement("img", "sculptureImage");
       image.src = "images/sculptures/" + sculptureImage;
       tileDiv.appendChild(image);
@@ -42,9 +46,11 @@ export const Sculptures = {
           imageDetails.innerText = "Howdy, I am a sculpture";
           tileDiv.appendChild(imageDetails);
 
-          setTimeout(()=> { imageDetails.classList.toggle('open')}, 10)
+          setTimeout(() => {
+            imageDetails.classList.toggle("open");
+          }, 10);
         } else {
-          tileDiv.removeChild(tileDiv.querySelector('.imageDetails'));
+          tileDiv.removeChild(tileDiv.querySelector(".imageDetails"));
         }
       }
 
@@ -54,20 +60,22 @@ export const Sculptures = {
     app.appendChild(sculptureDivPanel);
   },
 
-  open: function () {
-    sculptureDivPanel.style.display = "grid";
-    sculptureDivPanel.style.opacity = '1'; 
+  open: function () { 
+    if (!this.isOpen) {
+      sculptureDivPanel.style.display = "grid";
+      sculptureDivPanel.style.opacity = "1";
+      setTimeout(() => sculptureDivPanel.rollout("translateX(0vw)"), 100);
+      this.isOpen = true;
+    }
 
-
-    setTimeout(() => sculptureDivPanel.rollout("translateX(0vw)"), 100);
-
-    this.isOpen = true;
   },
 
   close: function () {
-    sculptureDivPanel.style.opacity = '0';
-    setTimeout(()=> sculptureDivPanel.rollout('translateX(100vw)'), 500)
-    this.isOpen = false;
+    if (this.isOpen) {
+      sculptureDivPanel.style.opacity = "0";
+      setTimeout(() => sculptureDivPanel.rollout("translateX(100vw)"), 500);
+      this.isOpen = false;
+    }
   },
 };
 

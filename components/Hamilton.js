@@ -2,7 +2,7 @@ import { BetterElement } from "./BetterElement.js";
 
 export const Hamilton = {
   isOpen: false,
-  title: 'Hamilton',
+  title: "Hamilton",
 
   open: function () {
     console.log("Leslie Odom sucks");
@@ -10,6 +10,8 @@ export const Hamilton = {
   },
 
   close: function () {
-    this.isOpen = false;
+    if (this.isOpen) {
+      this.isOpen = false;
+    }
   },
 };

@@ -33,37 +33,20 @@ export const Bikes = {
   },
 
   close: function () {
-    bikeDivPanel.style.opacity = '0';
-    setTimeout(()=> sculptureDivPanel.rollout('translateX(100vw)'), 500);
+    if (this.isOpen) {
+      bikeDivPanel.style.opacity = '0';
+      setTimeout(()=> sculptureDivPanel.rollout('translateX(100vw)'), 500);
+      let startingOpacity = 0;
+      shutterBike(startingOpacity);
+      setTimeout(() => {
+        for (let part in bikeParts) {
+          bikeParts[part].parentElement.removeChild(bikeParts[part]);
+        }
+      }, 600);
+  
+      this.isOpen = false;
 
-
-
-    let startingOpacity = 0;
-
-    // function shutterBike(startingOpacity) {
-    //   if (startingOpacity < 100) {
-    //     setTimeout(() => {
-    //       for (let part in bikeParts) {
-    //         bikeParts[part].style.opacity =
-    //           1 - (startingOpacity * 0.01).toString();
-    //       }
-    //       startingOpacity++;
-    //       shutterBike(startingOpacity);
-    //     }, 30);
-    //   }
-    // }
-    // shutterBike(startingOpacity);
-
-    shutterBike(startingOpacity);
-
-
-    setTimeout(() => {
-      for (let part in bikeParts) {
-        bikeParts[part].parentElement.removeChild(bikeParts[part]);
-      }
-    }, 600);
-
-    this.isOpen = false;
+    }
   },
 };
 

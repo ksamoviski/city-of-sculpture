@@ -7,8 +7,6 @@ export const Contact = {
   contactBox: BetterElement("div", "smallSide"),
   isOpen: false,
 
-
-
   open: function () {
     const inputsBox = BetterElement("div");
     const contactBoxHeader = BetterElement("div");
@@ -65,18 +63,17 @@ export const Contact = {
       }, 1000);
     }
 
-
-
     this.isOpen = true;
   },
 
   close: function () {
-
-    this.contactBox.rollout('translateX(-10vw)');
-    this.contactBox.eraseAllKids();
-    setTimeout(() => {
-      app.removeChild(this.contactBox);
-    }, 300);
+    if (this.isOpen) {
+      this.contactBox.rollout("translateX(-10vw)");
+      this.contactBox.eraseAllKids();
+      setTimeout(() => {
+        app.removeChild(this.contactBox);
+      }, 300);
+    }
 
     this.isOpen = false;
   },

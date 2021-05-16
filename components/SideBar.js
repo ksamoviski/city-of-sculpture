@@ -10,8 +10,6 @@ import { HomeBackground } from "./HomeBackground.js";
 
 const app = document.getElementById("app");
 
-let anyOpenPanel = false;
-
 const ourPanels = [
   AboutUsPanel,
   Sculptures,
@@ -32,13 +30,16 @@ export const SideBar = {
     ourPanels.forEach((panel) => {
       let sideBarMenuItem = NavItem(panel.title);
       sideBarMenuItem.addEventListener("click", () => {
-        closeAnyOtherPanel(panel);
         if (!panel.isOpen) {
           panel.open();
         }
-        if (panel === Bikes) {
+        closeEverythingExceptSculptures(panel);
+        if (panel === Bikes || panel === GettingAround) {
           Sculptures.close();
+        } else if (panel === AboutUsPanel || panel === ArtistsPanel || panel === Contact) {
+          Sculptures.open();
         }
+
       });
 
       menuContainer.appendChild(sideBarMenuItem);
@@ -51,9 +52,9 @@ export const SideBar = {
       sideBar.style.transform = "translateX(10vw)";
     }, 150);
 
-    function closeAnyOtherPanel(panel) {
+    function closeEverythingExceptSculptures(panel) {
       for (let door of ourPanels) {
-        if (door != Sculptures && door.isOpen && door != panel) {
+        if (door != Sculptures && door != panel) {
           door.close();
         }
       }

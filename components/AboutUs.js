@@ -23,7 +23,7 @@ export const AboutUsPanel = {
     app.appendChild(extraSide);
 
     setTimeout(() => {
-      extraSide.rollout("translateX(22vw)");
+      extraSide.rollout("translateX(12vw)");
     }, 10);
     this.isOpen = true;
   },
@@ -31,7 +31,7 @@ export const AboutUsPanel = {
   close: function () {
     if (this.isOpen) {
       let littleSide = document.getElementById("littleSide");
-      littleSide.rollout("translateX(0vw)");
+      littleSide.rollout("translateX(5vw)");
 
       setTimeout(() => {
         littleSide.parentElement.removeChild(littleSide);

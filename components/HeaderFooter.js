@@ -8,13 +8,15 @@ console.log(screenHeight);
 export const HeaderFooter = {
   render: function () {
     let header = BetterElement("header", "header");
-    let footer = BetterElement('footer', 'footer');
+    let footer = BetterElement("footer", "footer");
 
     screenHeight < 1000
       ? (header.style.height = screenHeight / 6 + "px")
       : (header.style.height = screenHeight / 5 + "px");
 
-    header.innerHTML = `<div class="logoDiv"></div>`;
+    // header.innerHTML = `<div class="logoDiv"></div>`;
+    header.innerHTML = `<img src ="../images/logo.png"/> `;
+
     app.appendChild(header);
     app.appendChild(footer);
     setTimeout(() => {

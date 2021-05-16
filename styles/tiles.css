@@ -9,7 +9,7 @@
   grid-template-columns: repeat(auto-fit, minmax(15vh, 1fr));
   grid-auto-rows: 15vh;
   grid-auto-flow: dense;
-  background: whitesmoke;
+  background: white;
   transform: translateX(100vw);
   transition: 2.5s cubic-bezier(0.3, 0, 0.5, 1);
 }
@@ -28,7 +28,7 @@
   grid-auto-rows: 15vh;
   grid-auto-flow: dense;
   background: whitesmoke;
-  transform: translateX(-90vw);
+  transform: translateX(-95vw);
 }
 
 
@@ -44,8 +44,6 @@
   height: 100%;
   object-fit: cover;
   transition: 1s;
-
-  /* border: 1px solid black; */
 }
 
 .horizontal {

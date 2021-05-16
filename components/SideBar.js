@@ -8,7 +8,6 @@ import { Hamilton } from "./Hamilton.js";
 import { Contact } from "./Contact.js";
 import { HomeBackground } from "./HomeBackground.js";
 
-
 const app = document.getElementById("app");
 
 const ourPanels = [
@@ -23,7 +22,7 @@ const ourPanels = [
 
 const NavItem = (menuKeyValue) => {
   let container = BetterElement("div", "navItemDiv");
-  let textElement = BetterElement( 'h2',"navBarItem");
+  let textElement = BetterElement("h2", "navBarItem");
   textElement.innerText = menuKeyValue;
   container.appendChild(textElement);
 
@@ -32,21 +31,27 @@ const NavItem = (menuKeyValue) => {
     textElement.style.color = "#c1272d";
   });
 
-
   container.addEventListener("mouseleave", () => {
     container.style.backgroundColor = "#c1272d";
     textElement.style.color = "white";
   });
 
   container.addEventListener("click", () => {
-
     for (let panel of ourPanels) {
       if (panel.isOpen) {
         panel.close();
       }
 
-      if (menuKeyValue === 'The Sculptures' || menuKeyValue === 'The Artists' || menuKeyValue === 'Getting Around') {
+      if (
+        menuKeyValue === "The Sculptures" ||
+        menuKeyValue === "The Artists" ||
+        menuKeyValue === "Getting Around"
+      ) {
         HomeBackground.close();
+      }
+
+      if (menuKeyValue === "Getting Around") {
+        SideBar.scootLeft();
       }
 
       if (panel.title === menuKeyValue) {
@@ -59,9 +64,10 @@ const NavItem = (menuKeyValue) => {
 };
 
 export const SideBar = {
+  sideBar: BetterElement("div", "sideBar"),
+
   open: function () {
-    let sideBar = BetterElement("div", "sideBar");
-    sideBar.id = "sideBar";
+    this.sideBar.id = "sideBar";
     let menuContainer = BetterElement("div", "menuContainer");
 
     ourPanels.forEach((panel) => {
@@ -69,19 +75,17 @@ export const SideBar = {
       menuContainer.appendChild(navElements);
     });
 
-    sideBar.appendChild(menuContainer);
+    this.sideBar.appendChild(menuContainer);
 
-    // sideBar.addEventListener("mouseleave", () => {
-    //   ourPanels.forEach((panel) => {
-    //     if (panel.isOpen) {
-    //       panel.close();
-    //     }
-    //   });
-    // });
-
-    app.appendChild(sideBar);
+    app.appendChild(this.sideBar);
     setTimeout(() => {
       sideBar.style.transform = "translateX(10vw)";
     }, 150);
   },
+
+  scootLeft: function() {
+    this.sideBar.style.transform = 'translateX(-5vw)';
+  }
+
+
 };

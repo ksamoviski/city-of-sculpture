@@ -1,7 +1,8 @@
 .mapPanel {
-  /* position: relative; */
-  /* background-image: url("../images/mapWithMarkers.png"); */
-  /* width: 100vw;
-  height: 90vh; */
+  transform: scale(1, .4);
+  transition: 1s;
+}
 
+.open {
+    transform: scale(1, 1);
 }

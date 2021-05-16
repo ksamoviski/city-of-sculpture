@@ -10,6 +10,8 @@ import { HomeBackground } from "./HomeBackground.js";
 
 const app = document.getElementById("app");
 
+let anyOpenPanel = false;
+
 const ourPanels = [
   AboutUsPanel,
   Sculptures,
@@ -20,7 +22,50 @@ const ourPanels = [
   Contact,
 ];
 
-const NavItem = (menuKeyValue) => {
+export const SideBar = {
+  sideBar: BetterElement("div", "sideBar"),
+
+  open: function () {
+    this.sideBar.id = "sideBar";
+    let menuContainer = BetterElement("div", "menuContainer");
+
+    ourPanels.forEach((panel) => {
+      let sideBarMenuItem = NavItem(panel.title);
+      sideBarMenuItem.addEventListener("click", () => {
+        closeAnyOtherPanel(panel);
+        if (!panel.isOpen) {
+          panel.open();
+        }
+        if (panel === Bikes) {
+          Sculptures.close();
+        }
+      });
+
+      menuContainer.appendChild(sideBarMenuItem);
+    });
+
+    this.sideBar.appendChild(menuContainer);
+
+    app.appendChild(this.sideBar);
+    setTimeout(() => {
+      sideBar.style.transform = "translateX(10vw)";
+    }, 150);
+
+    function closeAnyOtherPanel(panel) {
+      for (let door of ourPanels) {
+        if (door != Sculptures && door.isOpen && door != panel) {
+          door.close();
+        }
+      }
+    }
+  },
+
+  scootLeft: function () {
+    this.sideBar.style.transform = "translateX(-5vw)";
+  },
+};
+
+function NavItem(menuKeyValue) {
   let container = BetterElement("div", "navItemDiv");
   let textElement = BetterElement("p", "navBarItem");
   textElement.innerText = menuKeyValue;
@@ -35,57 +80,5 @@ const NavItem = (menuKeyValue) => {
     container.style.backgroundColor = "#c1272d";
     textElement.style.color = "white";
   });
-
-  container.addEventListener("click", () => {
-    for (let panel of ourPanels) {
-      if (panel.isOpen) {
-        panel.close();
-      }
-
-      if (
-        menuKeyValue === "The Sculptures" ||
-        menuKeyValue === "The Artists" ||
-        menuKeyValue === "Getting Around"
-      ) {
-        HomeBackground.close();
-      }
-
-      if (menuKeyValue === "Getting Around") {
-        SideBar.scootLeft();
-      }
-
-      if (panel.title === menuKeyValue) {
-        panel.open();
-      }
-    }
-  });
-
   return container;
-};
-
-export const SideBar = {
-  sideBar: BetterElement("div", "sideBar"),
-
-  open: function () {
-    this.sideBar.id = "sideBar";
-    let menuContainer = BetterElement("div", "menuContainer");
-
-    ourPanels.forEach((panel) => {
-      let navElements = NavItem(panel.title);
-      menuContainer.appendChild(navElements);
-    });
-
-    this.sideBar.appendChild(menuContainer);
-
-    app.appendChild(this.sideBar);
-    setTimeout(() => {
-      sideBar.style.transform = "translateX(10vw)";
-    }, 150);
-  },
-
-  scootLeft: function() {
-    this.sideBar.style.transform = 'translateX(-5vw)';
-  }
-
-
-};
+}

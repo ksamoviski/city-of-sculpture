@@ -15,6 +15,10 @@ export const BetterElement = (tag, ...classList) => {
     }
   };
 
+  elementToReturn.eraseItself = () => {
+    elementToReturn.parentElement.removeChild(elementToReturn);
+  };
+
   return elementToReturn;
 };
 

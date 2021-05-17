@@ -28,6 +28,7 @@ export const GettingAround = {
       mapPanel.classList.remove("open");
       let sideBar = document.getElementById("sideBar");
       sideBar.style.transform = "translateX(14vw)";
+      setTimeout(() => { mapPanel.eraseItself() }, 700);
     }
 
     this.isOpen = false;

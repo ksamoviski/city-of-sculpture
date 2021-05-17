@@ -57,5 +57,6 @@ export const shutterBike = (startingOpacity) => {
       startingOpacity++;
       shutterBike(startingOpacity);
     }, 30);
+
   }
 };

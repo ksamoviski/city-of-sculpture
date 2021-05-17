@@ -39,6 +39,8 @@
   grid-auto-flow: dense;
   background: whitesmoke;
   transform: translateX(-92vw);
+  transition: 1s;
+
 }
 
 .tileDiv {

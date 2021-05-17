@@ -27,25 +27,23 @@ export const Bikes = {
   },
 
   open: function () {
-    bikeDivPanel.style.opacity = '1';
+    this.attachImages();
+    bikeDivPanel.style.opacity = "1";
     PennyFarthing(0, 0, 0);
     this.isOpen = true;
   },
 
   close: function () {
     if (this.isOpen) {
-      bikeDivPanel.style.opacity = '0';
-      setTimeout(()=> sculptureDivPanel.rollout('translateX(100vw)'), 500);
+      bikeDivPanel.style.opacity = "0";
       let startingOpacity = 0;
       shutterBike(startingOpacity);
-      setTimeout(() => {
-        for (let part in bikeParts) {
-          bikeParts[part].parentElement.removeChild(bikeParts[part]);
-        }
-      }, 600);
-  
-      this.isOpen = false;
+      // bikeDivPanel.eraseAllKids();
+      // bikeDivPanel.parentElement.removeChild(bikeDivPanel);
 
+      setTimeout( ()=> { bikeDivPanel.eraseItself() }, 2000)
+
+      this.isOpen = false;
     }
   },
 };

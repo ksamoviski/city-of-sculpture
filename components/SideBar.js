@@ -52,7 +52,7 @@ export const SideBar = {
 
     app.appendChild(this.sideBar);
     setTimeout(() => {
-      sideBar.style.transform = "translateX(14vw)";
+      sideBar.style.transform = "translateX(15vw)";
     }, 150);
 
     function closeEverythingExceptSculptures(panel) {

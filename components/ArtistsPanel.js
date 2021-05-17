@@ -31,7 +31,7 @@ export const ArtistsPanel = {
     app.appendChild(extraSide);
 
     setTimeout(() => {
-      extraSide.rollout("translateX(12vw)");
+      extraSide.rollout("translateX(14vw)");
     }, 10);
 
     this.isOpen = true;

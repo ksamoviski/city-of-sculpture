@@ -9,8 +9,12 @@ const BIG = "big",
 
 let sculptureDivPanel = BetterElement("div", "sculptureDivPanel");
 let windowFrame = BetterElement("div", "windowFrame");
-let rightArrow = BetterElement("button", "carouselButtons", "arrow-right");
-let leftArrow = BetterElement("button", "carouselButtons", "arrow-left");
+
+let forwardArrow = BetterElement("img", "arrow", "forward");
+let backArrow = BetterElement("img", "arrow", "back");
+
+forwardArrow.src = "../images/forwardArrow-01.svg";
+backArrow.src = "../images/backArrow-01.svg";
 
 export const Sculptures = {
   isOpen: false,
@@ -60,8 +64,8 @@ export const Sculptures = {
       sculptureDivPanel.appendChild(tileDiv);
     }
 
-    app.appendChild(rightArrow);
-    app.appendChild(leftArrow);
+    app.appendChild(forwardArrow);
+    app.appendChild(backArrow);
 
     app.appendChild(windowFrame);
     windowFrame.appendChild(sculptureDivPanel);
@@ -69,8 +73,8 @@ export const Sculptures = {
 
   open: function () {
     if (!this.isOpen) {
-      rightArrow.style.display = 'block';
-      leftArrow.style.display = 'block';
+      forwardArrow.style.display = "block";
+      backArrow.style.display = "block";
       sculptureDivPanel.style.display = "grid";
       sculptureDivPanel.style.opacity = "1";
       setTimeout(() => sculptureDivPanel.rollout("translateX(0vw)"), 100);
@@ -81,8 +85,8 @@ export const Sculptures = {
 
   close: function () {
     if (this.isOpen) {
-      rightArrow.style.display = 'none';
-      leftArrow.style.display = 'none';
+      forwardArrow.style.display = 'none';
+      backArrow.style.display = 'none';
       sculptureDivPanel.style.opacity = "0";
       setTimeout(() => sculptureDivPanel.rollout("translateX(100vw)"), 500);
       this.isOpen = false;
@@ -97,11 +101,11 @@ export const Sculptures = {
   },
 };
 
-rightArrow.addEventListener("click", () => {
+forwardArrow.addEventListener("click", () => {
   Sculptures.slide(-15);
 });
 
-leftArrow.addEventListener("click", () => {
+backArrow.addEventListener("click", () => {
   Sculptures.slide(15);
 });
 

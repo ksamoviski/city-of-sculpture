@@ -9,7 +9,7 @@ let bikeParts = {
 };
 
 bikeParts.bigWheel.src = "../images/bigWheel.png";
-bikeParts.pennyFrame.src = "../images/pennyFrameWithTow.png";
+bikeParts.pennyFrame.src = "../images/pennyFrameWithTow2-01.png";
 bikeParts.smallWheel.src = "../images/smallWheel.png";
 
 export const PennyFarthing = (leftSpot, bigRotator, smallRotator) => {

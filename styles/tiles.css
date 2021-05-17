@@ -38,7 +38,7 @@
   grid-auto-rows: 15vh;
   grid-auto-flow: dense;
   background: whitesmoke;
-  transform: translateX(-92vw);
+  transform: translateX(-80vw);
   transition: 1s;
 
 }

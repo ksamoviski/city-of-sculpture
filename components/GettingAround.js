@@ -1,4 +1,4 @@
-import { BetterElement } from "./BetterElement.js";
+import { BetterElement, NavItem } from "./BetterElement.js";
 
 const app = document.getElementById("app");
 
@@ -6,7 +6,8 @@ let mapPanel = BetterElement("img", "mapPanel");
 
 export const GettingAround = {
   isOpen: false,
-  title: "Getting Around",
+  navElement: new NavItem('Getting Around'),
+
 
   open: function () {
     mapPanel.style.opacity = "1";
@@ -30,6 +31,7 @@ export const GettingAround = {
       sideBar.style.transform = "translateX(14vw)";
       setTimeout(() => { mapPanel.eraseItself() }, 700);
     }
+    this.navElement.switchOff(true);
 
     this.isOpen = false;
   },

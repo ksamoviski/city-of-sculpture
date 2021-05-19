@@ -1,9 +1,10 @@
-import { BetterElement } from "./BetterElement.js";
+import { BetterElement, NavItem } from "./BetterElement.js";
 
 let app = document.getElementById("app");
 
 export const Contact = {
-  title: "Contact Us",
+  navElement: new NavItem('Contact Us'),
+
   contactBox: BetterElement("div", "smallSide"),
   isOpen: false,
 
@@ -61,6 +62,7 @@ export const Contact = {
         app.removeChild(this.contactBox);
       }, 300);
     }
+    this.navElement.switchOff(true);
 
     this.isOpen = false;
   },

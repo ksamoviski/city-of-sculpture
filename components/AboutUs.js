@@ -1,4 +1,4 @@
-import { BetterElement, XOut } from "./BetterElement.js";
+import { BetterElement, XOut, NavItem } from "./BetterElement.js";
 
 const app = document.getElementById("app");
 
@@ -13,7 +13,7 @@ boardLink.innerHTML = `<p class="missionAndBoardText">Our Board</p>`;
 
 export const AboutUsPanel = {
   isOpen: false,
-  title: "About Us",
+  navElement: new NavItem('About Us'),
 
   open: function () {
     let extraSide = BetterElement("div", "smallSide");
@@ -40,6 +40,8 @@ export const AboutUsPanel = {
     if (this.isOpen) {
       let littleSide = document.getElementById("littleSide");
       littleSide.rollout("translateX(5vw)");
+
+      this.navElement.switchOff(true);
 
       setTimeout(() => {
         littleSide.parentElement.removeChild(littleSide);

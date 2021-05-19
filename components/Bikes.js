@@ -1,4 +1,4 @@
-import { BetterElement } from "./BetterElement.js";
+import { BetterElement, NavItem } from "./BetterElement.js";
 import { PennyFarthing } from "./PennyFarthing.js";
 import { shutterBike } from "./PennyFarthing.js";
 
@@ -13,7 +13,8 @@ let bikeDivPanel = BetterElement("div", "bikeDivPanel");
 
 export const Bikes = {
   isOpen: false,
-  title: "Sculptural Bike Racks",
+  navElement: new NavItem('Sculptural Bike Racks'),
+
 
   attachImages: function () {
     for (let bikeRackImage in listOfRacks) {
@@ -42,6 +43,7 @@ export const Bikes = {
       // bikeDivPanel.parentElement.removeChild(bikeDivPanel);
 
       setTimeout( ()=> { bikeDivPanel.eraseItself() }, 2000)
+      this.navElement.switchOff(true);
 
       this.isOpen = false;
     }

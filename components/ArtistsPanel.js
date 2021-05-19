@@ -1,10 +1,10 @@
-import { BetterElement } from "./BetterElement.js";
+import { BetterElement, NavItem } from "./BetterElement.js";
 
 let app = document.getElementById("app");
 
 export const ArtistsPanel = {
   isOpen: false,
-  title: "The Artists",
+  navElement: new NavItem("The Artists"),
 
   open: function () {
     let extraSide = BetterElement("div", "smallSide");
@@ -41,6 +41,7 @@ export const ArtistsPanel = {
     if (this.isOpen) {
       let littleSide = document.getElementById("littleSide");
       littleSide.rollout("translateX(0vw)");
+      this.navElement.switchOff(true);
 
       setTimeout(() => {
         littleSide.parentElement.removeChild(littleSide);

@@ -6,7 +6,6 @@ import { GettingAround } from "./GettingAround.js";
 import { Bikes } from "./Bikes.js";
 import { Hamilton } from "./Hamilton.js";
 import { Contact } from "./Contact.js";
-import { HomeBackground } from "./HomeBackground.js";
 
 const app = document.getElementById("app");
 
@@ -22,16 +21,19 @@ const ourPanels = [
 
 export const SideBar = {
   sideBar: BetterElement("div", "sideBar"),
+  unlocked: true,
 
   open: function () {
     this.sideBar.id = "sideBar";
     let menuContainer = BetterElement("div", "menuContainer");
 
     ourPanels.forEach((panel) => {
-      let sideBarMenuItem = NavItem(panel.title);
-      sideBarMenuItem.addEventListener("click", () => {
+      panel.navElement.container.addEventListener('mouseenter', ()=> { panel.navElement.flipColors(this.unlocked) })
+      panel.navElement.container.addEventListener('mouseleave', ()=> { panel.navElement.switchOff(this.unlocked) })
+      panel.navElement.container.addEventListener("click", () => {
         if (!panel.isOpen) {
           panel.open();
+          this.unlocked = false;
         }
         closeEverythingExceptSculptures(panel);
         if (panel === Bikes || panel === GettingAround) {
@@ -45,7 +47,7 @@ export const SideBar = {
         }
       });
 
-      menuContainer.appendChild(sideBarMenuItem);
+      menuContainer.appendChild(panel.navElement.container);
     });
 
     this.sideBar.appendChild(menuContainer);
@@ -69,20 +71,29 @@ export const SideBar = {
   },
 };
 
-function NavItem(menuKeyValue) {
-  let container = BetterElement("div", "navItemDiv");
-  let textElement = BetterElement("p", "navBarItem");
-  textElement.innerText = menuKeyValue;
-  container.appendChild(textElement);
+// function NavItem(menuKeyValue) {
+//   let container = BetterElement("div", "navItemDiv");
+//   let textElement = BetterElement("p", "navBarItem");
+//   textElement.innerText = menuKeyValue;
+//   container.appendChild(textElement);
 
-  container.addEventListener("mouseenter", () => {
-    container.style.backgroundColor = "white";
-    textElement.style.color = "#c1272d";
-  });
+//   container.addEventListener("click", () => {
+//     container.style.backgroundColor = "white";
+//     textElement.style.color = "#c1272d";
+//   });
 
-  container.addEventListener("mouseleave", () => {
-    container.style.backgroundColor = "#c1272d";
-    textElement.style.color = "white";
-  });
-  return container;
-}
+//   container.addEventListener("mouseenter", () => {
+//     if (SideBar.unlocked) {
+//       container.style.backgroundColor = "white";
+//       textElement.style.color = "#c1272d";
+//     }
+//   });
+
+//   container.addEventListener("mouseleave", () => {
+//     if (SideBar.unlocked) {
+//       container.style.backgroundColor = "#c1272d";
+//       textElement.style.color = "white";
+//     }
+//   });
+//   return container;
+// }

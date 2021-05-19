@@ -1,4 +1,4 @@
-import { BetterElement } from "./BetterElement.js";
+import { BetterElement, NavItem } from "./BetterElement.js";
 
 const app = document.getElementById("app");
 
@@ -18,7 +18,7 @@ backArrow.src = "../images/backArrow-01.svg";
 
 export const Sculptures = {
   isOpen: false,
-  title: "The Sculptures",
+  navElement: new NavItem('The Sculptures'),
 
   attachImages: function () {
     for (let sculptureImage in listOfSculptures) {
@@ -89,6 +89,8 @@ export const Sculptures = {
       backArrow.style.display = 'none';
       sculptureDivPanel.style.opacity = "0";
       setTimeout(() => sculptureDivPanel.rollout("translateX(100vw)"), 500);
+      this.navElement.switchOff(true);
+
       this.isOpen = false;
     }
   },

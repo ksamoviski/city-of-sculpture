@@ -1,8 +1,9 @@
-import { BetterElement } from "./BetterElement.js";
+import { BetterElement, NavItem } from "./BetterElement.js";
 
 export const Hamilton = {
   isOpen: false,
-  title: 'Hamilton',
+  navElement: new NavItem('Hamilton'),
+
 
   open: function () {
     console.log("Leslie Odom sucks");
@@ -10,6 +11,10 @@ export const Hamilton = {
   },
 
   close: function () {
-    this.isOpen = false;
+    if (this.isOpen) {
+      this.navElement.switchOff(true);
+
+      this.isOpen = false;
+    }
   },
 };

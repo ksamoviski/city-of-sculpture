@@ -6,7 +6,6 @@ import { GettingAround } from "./GettingAround.js";
 import { Bikes } from "./Bikes.js";
 import { Hamilton } from "./Hamilton.js";
 import { Contact } from "./Contact.js";
-import { HomeBackground } from "./HomeBackground.js";
 
 const app = document.getElementById("app");
 
@@ -20,72 +19,81 @@ const ourPanels = [
   Contact,
 ];
 
-const NavItem = (menuKeyValue) => {
-  let container = BetterElement("div", "navItemDiv");
-  let textElement = BetterElement("p", "navBarItem");
-  textElement.innerText = menuKeyValue;
-  container.appendChild(textElement);
-
-  container.addEventListener("mouseenter", () => {
-    container.style.backgroundColor = "white";
-    textElement.style.color = "#c1272d";
-  });
-
-  container.addEventListener("mouseleave", () => {
-    container.style.backgroundColor = "#c1272d";
-    textElement.style.color = "white";
-  });
-
-  container.addEventListener("click", () => {
-    for (let panel of ourPanels) {
-      if (panel.isOpen) {
-        panel.close();
-      }
-
-      if (
-        menuKeyValue === "The Sculptures" ||
-        menuKeyValue === "The Artists" ||
-        menuKeyValue === "Getting Around"
-      ) {
-        HomeBackground.close();
-      }
-
-      if (menuKeyValue === "Getting Around") {
-        SideBar.scootLeft();
-      }
-
-      if (panel.title === menuKeyValue) {
-        panel.open();
-      }
-    }
-  });
-
-  return container;
-};
-
 export const SideBar = {
   sideBar: BetterElement("div", "sideBar"),
+  unlocked: true,
 
   open: function () {
     this.sideBar.id = "sideBar";
     let menuContainer = BetterElement("div", "menuContainer");
 
     ourPanels.forEach((panel) => {
-      let navElements = NavItem(panel.title);
-      menuContainer.appendChild(navElements);
+      panel.navElement.container.addEventListener('mouseenter', ()=> { panel.navElement.flipColors(this.unlocked) })
+      panel.navElement.container.addEventListener('mouseleave', ()=> { panel.navElement.switchOff(this.unlocked) })
+      panel.navElement.container.addEventListener("click", () => {
+        if (!panel.isOpen) {
+          panel.open();
+          this.unlocked = false;
+        }
+        closeEverythingExceptSculptures(panel);
+        if (panel === Bikes || panel === GettingAround) {
+          Sculptures.close();
+        } else if (
+          panel === AboutUsPanel ||
+          panel === ArtistsPanel ||
+          panel === Contact
+        ) {
+          Sculptures.open();
+        }
+      });
+
+      menuContainer.appendChild(panel.navElement.container);
     });
 
     this.sideBar.appendChild(menuContainer);
 
     app.appendChild(this.sideBar);
     setTimeout(() => {
-      sideBar.style.transform = "translateX(10vw)";
+      sideBar.style.transform = "translateX(15vw)";
     }, 150);
+
+    function closeEverythingExceptSculptures(panel) {
+      for (let door of ourPanels) {
+        if (door != Sculptures && door != panel) {
+          door.close();
+        }
+      }
+    }
   },
 
-  scootLeft: function() {
-    this.sideBar.style.transform = 'translateX(-5vw)';
-  }
-
-
+  scootLeft: function () {
+    this.sideBar.style.transform = "translateX(-5vw)";
+  },
 };
+
+// function NavItem(menuKeyValue) {
+//   let container = BetterElement("div", "navItemDiv");
+//   let textElement = BetterElement("p", "navBarItem");
+//   textElement.innerText = menuKeyValue;
+//   container.appendChild(textElement);
+
+//   container.addEventListener("click", () => {
+//     container.style.backgroundColor = "white";
+//     textElement.style.color = "#c1272d";
+//   });
+
+//   container.addEventListener("mouseenter", () => {
+//     if (SideBar.unlocked) {
+//       container.style.backgroundColor = "white";
+//       textElement.style.color = "#c1272d";
+//     }
+//   });
+
+//   container.addEventListener("mouseleave", () => {
+//     if (SideBar.unlocked) {
+//       container.style.backgroundColor = "#c1272d";
+//       textElement.style.color = "white";
+//     }
+//   });
+//   return container;
+// }

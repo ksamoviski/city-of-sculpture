@@ -1,21 +1,32 @@
-import { BetterElement } from "./BetterElement.js";
+import { BetterElement, NavItem } from "./BetterElement.js";
 
 const app = document.getElementById("app");
 
-const BIG = "big";
-const H = "horizontal";
-const V = "vertical";
-const HUGE = "huge";
+const BIG = "big",
+  H = "horizontal",
+  V = "vertical",
+  HUGE = "huge";
 
 let sculptureDivPanel = BetterElement("div", "sculptureDivPanel");
+let windowFrame = BetterElement("div", "windowFrame");
+
+let forwardArrow = BetterElement("img", "arrow", "forward");
+let backArrow = BetterElement("img", "arrow", "back");
+
+forwardArrow.src = "../images/forwardArrow-01.svg";
+backArrow.src = "../images/backArrow-01.svg";
 
 export const Sculptures = {
   isOpen: false,
-  title: "The Sculptures",
+  navElement: new NavItem('The Sculptures'),
 
   attachImages: function () {
     for (let sculptureImage in listOfSculptures) {
-      let tileDiv = BetterElement("div", "tileDiv", listOfSculptures[sculptureImage]);
+      let tileDiv = BetterElement(
+        "div",
+        "tileDiv",
+        listOfSculptures[sculptureImage]
+      );
       let image = BetterElement("img", "sculptureImage");
       image.src = "images/sculptures/" + sculptureImage;
       tileDiv.appendChild(image);
@@ -42,34 +53,63 @@ export const Sculptures = {
           imageDetails.innerText = "Howdy, I am a sculpture";
           tileDiv.appendChild(imageDetails);
 
-          setTimeout(()=> { imageDetails.classList.toggle('open')}, 10)
+          setTimeout(() => {
+            imageDetails.classList.toggle("open");
+          }, 10);
         } else {
-          tileDiv.removeChild(tileDiv.querySelector('.imageDetails'));
+          tileDiv.removeChild(tileDiv.querySelector(".imageDetails"));
         }
       }
 
       sculptureDivPanel.appendChild(tileDiv);
     }
 
-    app.appendChild(sculptureDivPanel);
+    app.appendChild(forwardArrow);
+    app.appendChild(backArrow);
+
+    app.appendChild(windowFrame);
+    windowFrame.appendChild(sculptureDivPanel);
   },
 
   open: function () {
-    sculptureDivPanel.style.display = "grid";
-    sculptureDivPanel.style.opacity = '1'; 
-
-
-    setTimeout(() => sculptureDivPanel.rollout("translateX(0vw)"), 100);
-
-    this.isOpen = true;
+    if (!this.isOpen) {
+      forwardArrow.style.display = "block";
+      backArrow.style.display = "block";
+      sculptureDivPanel.style.display = "grid";
+      sculptureDivPanel.style.opacity = "1";
+      setTimeout(() => sculptureDivPanel.rollout("translateX(0vw)"), 100);
+      sculptureDivPanel.currentPosition = 0;
+      this.isOpen = true;
+    }
   },
 
   close: function () {
-    sculptureDivPanel.style.opacity = '0';
-    setTimeout(()=> sculptureDivPanel.rollout('translateX(100vw)'), 500)
-    this.isOpen = false;
+    if (this.isOpen) {
+      forwardArrow.style.display = 'none';
+      backArrow.style.display = 'none';
+      sculptureDivPanel.style.opacity = "0";
+      setTimeout(() => sculptureDivPanel.rollout("translateX(100vw)"), 500);
+      this.navElement.switchOff(true);
+
+      this.isOpen = false;
+    }
+  },
+
+  slide: function (direction) {
+    sculptureDivPanel.rollout(
+      `translateX(${sculptureDivPanel.currentPosition + direction}vw)`
+    );
+    sculptureDivPanel.currentPosition += direction;
   },
 };
+
+forwardArrow.addEventListener("click", () => {
+  Sculptures.slide(-15);
+});
+
+backArrow.addEventListener("click", () => {
+  Sculptures.slide(15);
+});
 
 const listOfSculptures = {
   "hamilton-thecape-2200x2401.jpeg": HUGE,

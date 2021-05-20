@@ -1,4 +1,4 @@
-import { BetterElement } from "./BetterElement.js";
+import { BetterElement, NavItem } from "./BetterElement.js";
 import { PennyFarthing } from "./PennyFarthing.js";
 import { shutterBike } from "./PennyFarthing.js";
 
@@ -13,7 +13,8 @@ let bikeDivPanel = BetterElement("div", "bikeDivPanel");
 
 export const Bikes = {
   isOpen: false,
-  title: "Sculptural Bike Racks",
+  navElement: new NavItem('Sculptural Bike Racks'),
+
 
   attachImages: function () {
     for (let bikeRackImage in listOfRacks) {
@@ -27,43 +28,25 @@ export const Bikes = {
   },
 
   open: function () {
-    bikeDivPanel.style.opacity = '1';
+    this.attachImages();
+    bikeDivPanel.style.opacity = "1";
     PennyFarthing(0, 0, 0);
     this.isOpen = true;
   },
 
   close: function () {
-    bikeDivPanel.style.opacity = '0';
-    setTimeout(()=> sculptureDivPanel.rollout('translateX(100vw)'), 500);
+    if (this.isOpen) {
+      bikeDivPanel.style.opacity = "0";
+      let startingOpacity = 0;
+      shutterBike(startingOpacity);
+      // bikeDivPanel.eraseAllKids();
+      // bikeDivPanel.parentElement.removeChild(bikeDivPanel);
 
+      setTimeout( ()=> { bikeDivPanel.eraseItself() }, 2000)
+      this.navElement.switchOff(true);
 
-
-    let startingOpacity = 0;
-
-    // function shutterBike(startingOpacity) {
-    //   if (startingOpacity < 100) {
-    //     setTimeout(() => {
-    //       for (let part in bikeParts) {
-    //         bikeParts[part].style.opacity =
-    //           1 - (startingOpacity * 0.01).toString();
-    //       }
-    //       startingOpacity++;
-    //       shutterBike(startingOpacity);
-    //     }, 30);
-    //   }
-    // }
-    // shutterBike(startingOpacity);
-
-    shutterBike(startingOpacity);
-
-
-    setTimeout(() => {
-      for (let part in bikeParts) {
-        bikeParts[part].parentElement.removeChild(bikeParts[part]);
-      }
-    }, 600);
-
-    this.isOpen = false;
+      this.isOpen = false;
+    }
   },
 };
 

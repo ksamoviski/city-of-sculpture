@@ -10,7 +10,10 @@ class App {
     HeaderFooter.render();
     Sculptures.attachImages();
     Bikes.attachImages();
-    HomeBackground.render();
+
+    setTimeout(() => {
+      Sculptures.open();
+    }, 300);
   }
 }
 

@@ -45,20 +45,22 @@ export const XOut = () => {
 };
 
 export class NavItem {
+  container = BetterElement("div", "navItemDiv");
+  textElement = BetterElement("p", "navBarItem");
+  clicked = false;
+
   constructor(menuItemTitle) {
-    this.container = BetterElement("div", "navItemDiv");
-    this.textElement = BetterElement("p", "navBarItem");
     this.textElement.innerText = menuItemTitle;
     this.container.appendChild(this.textElement);
 
     this.container.addEventListener("click", () => {
       this.container.style.backgroundColor = "white";
       this.textElement.style.color = "#c1272d";
-      this.clicked = true;
+      clicked = true;
     });
   }
 
-  flipColors(unlocked) {
+  flipColors = (unlocked) => {
     if (unlocked) {
       this.container.style.backgroundColor = "white";
       this.textElement.style.color = "#c1272d";
@@ -66,14 +68,14 @@ export class NavItem {
       this.container.style.backgroundColor = "#c1272d";
       this.textElement.style.color = "white";
     }
-  }
+  };
 
-  switchOff(unlocked) {
+  switchOff = (unlocked) => {
     if (unlocked) {
       this.container.style.backgroundColor = "#c1272d";
       this.textElement.style.color = "white";
     }
-  }
+  };
 
   // return container;
 }
